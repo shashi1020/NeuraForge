@@ -14,11 +14,15 @@ from dotenv import load_dotenv
 # ------------------- ENV SETUP -------------------
 load_dotenv()
 
-API_KEY = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
-if not API_KEY:
-    raise RuntimeError(
-        "No Gemini API key found. Set GEMINI_API_KEY or GOOGLE_API_KEY in .env"
-    )
+def get_api_key() -> str:
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        # Don't kill the app on startup; just fail when someone calls the endpoint
+        raise RuntimeError(
+            "GEMINI_API_KEY / GOOGLE_API_KEY not set on the server."
+        )
+    return api_key
+
 
 # ------------------- CORE LOGIC (reuse from app.py) -------------------
 def extract_topics_from_pdf(pdf_path: str):
@@ -58,9 +62,11 @@ def extract_topics_from_pdf(pdf_path: str):
 
 
 def summarize_with_gemini(full_text: str) -> str:
+    api_key = get_api_key()  # ✅ check inside the function, not at import time
+
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
-        google_api_key=API_KEY,
+        google_api_key=api_key,
     )
     prompt = (
         "Summarize the following document clearly and concisely. "
