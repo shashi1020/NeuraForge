@@ -6,3 +6,7 @@ faiss-cpu
 sentence-transformers
 python-dotenv
 pypdf
+python-multipart
+fastapi
+uvicorn[standard]
+pydantic
