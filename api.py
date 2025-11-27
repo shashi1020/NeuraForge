@@ -17,11 +17,11 @@ load_dotenv()
 
 
 def get_api_key() -> str:
-    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         # Don't kill the app on startup; just fail when someone calls the endpoint
         raise RuntimeError(
-            "GEMINI_API_KEY / GOOGLE_API_KEY not set on the server."
+            "GEMINI_API_KEY"
         )
     return api_key
 
@@ -147,3 +147,8 @@ async def analyze_pdf(file: UploadFile = File(...)):
             os.remove(temp_path)
         except Exception:
             pass
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
