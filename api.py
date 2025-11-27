@@ -14,6 +14,8 @@ from dotenv import load_dotenv
 # ------------------- ENV SETUP -------------------
 load_dotenv()
 
+
+
 def get_api_key() -> str:
     api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
     if not api_key:
@@ -105,6 +107,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"status": "ok", "message": "PDF AI API is running"}
 
 @app.post("/analyze", response_model=AnalyzeResponse)
 async def analyze_pdf(file: UploadFile = File(...)):
