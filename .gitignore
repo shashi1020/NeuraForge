@@ -1,0 +1,77 @@
+# --------------------
+# Python / FastAPI
+# --------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.venv.bak/
+
+# Byte-compiled / package files
+*.pyo
+*.pyd
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables (NEVER commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Pytest cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# SQLite DB (if used locally)
+*.sqlite3
+*.db
+
+# Token, cache files
+token.json
+__snapshots__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Models / embeddings / large files
+*.bin
+*.pt
+*.pth
+*.ckpt
+cache/
+models/
+downloads/
+sentence-transformers/
+torch_cache/
+
+# MyPy & Pylint
+.mypy_cache/
+.pylint.d/
+
+# --------------------
+# Deployment
+# --------------------
+# Railway builds output
+railway/
