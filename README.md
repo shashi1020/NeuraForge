@@ -239,13 +239,3 @@ web: uvicorn app:app --host 0.0.0.0 --port $PORT
 * Stateless API: no login, no session history.
 
 ---
-
-## 📜 License
-
-MIT License
-
----
-
-## 🙌 Contributing
-
-PRs and issues are we
