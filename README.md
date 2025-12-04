@@ -93,7 +93,7 @@ The backend automatically creates tables on first run.
 Start the FastAPI server:
 
 ```bash
-uvicorn app:app --reload
+uvicorn api:app --reload
 ```
 
 Server will start at:
