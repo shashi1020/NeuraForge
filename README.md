@@ -1,4 +1,5 @@
 # NeuraForgeAI – PDF RAG Chat Backend
+frontend: https://github.com/shashi1020/NeuraForgeAI-Frontend
 
 NeuraForgeAI is a robust FastAPI-based backend designed for **PDF understanding**, **document chunking**, **embedding-based retrieval**, and **chat over documents using RAG (Retrieval-Augmented Generation)**. It extracts PDF text, generates a concise summary, stores chunks with embeddings in PostgreSQL, and allows users to chat with grounded, citation-based answers using Gemini.
 
